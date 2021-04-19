@@ -42,6 +42,28 @@ Run the `get_data.sh` script inside the `java` directory. Once finished, we will
 +------------------------+---------+---------+---------+----------+
 ```
 
+### Dataset: tlcodesum to SBT representation
+
+Added by Robert.
+
+Run the `get_data.sh` script inside the `java-sbt` directory. Once finished, we will see a pretty table summarizing the data statistics.
+
+```
++------------------------+----------+---------+---------+----------+
+| Attribute              |    Train |   Valid |    Test |  Fullset |
++------------------------+----------+---------+---------+----------+
+| Records                |    69593 |    8694 |    8689 |    86976 |
+| Function Tokens        | 12112822 | 1503864 | 1529499 | 15146185 |
+| Javadoc Tokens         |  1214372 |  153148 |  150972 |  1518492 |
+| Unique Function Tokens |    39818 |   16061 |   15965 |    71844 |
+| Unique Javadoc Tokens  |    29113 |    9889 |    9591 |    48593 |
+| Avg. Function Length   |   174.05 |  172.98 |  176.03 |   174.14 |
+| Avg. Javadoc Length    |    17.45 |   17.62 |   17.38 |    17.46 |
++------------------------+----------+---------+---------+----------+
+
+```
+
+
 ### Direct Data Download
 
 You can directly download our experiment dataset from [here](https://drive.google.com/drive/folders/1Mx0xEPZfQzb5h0z753XV-JgoWUuxiuKZ?usp=sharing).
