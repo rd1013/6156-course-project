@@ -498,12 +498,15 @@ def main(args):
                     args.train_tgt_files, args.dataset_name):
             train_files = dict()
             train_files['src'] = train_src
+
+            print('train_src:', train_src)
             train_files['src_tag'] = train_src_tag
             train_files['tgt'] = train_tgt
             exs = util.load_data(args,
                                  train_files,
                                  max_examples=args.max_examples,
                                  dataset_name=dataset_name)
+            print("exs len:", len(exs))
             lang_name = constants.DATA_LANG_MAP[dataset_name]
             args.dataset_weights[constants.LANG_ID_MAP[lang_name]] = len(exs)
             train_exs.extend(exs)

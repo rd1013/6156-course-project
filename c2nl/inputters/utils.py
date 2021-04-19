@@ -108,7 +108,7 @@ def load_data(args, filenames, max_examples=-1, dataset_name='java',
     examples = []
     for src, src_tag, tgt in tqdm(zip(sources, source_tags, targets),
                                   total=len(sources)):
-        if dataset_name in ['java', 'python']:
+        if dataset_name in ['java', 'python', 'java-sbt']:
             _ex = process_examples(LANG_ID_MAP[DATA_LANG_MAP[dataset_name]],
                                    src,
                                    src_tag,

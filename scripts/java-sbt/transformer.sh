@@ -12,8 +12,8 @@ MODEL_DIR=${SRC_DIR}/tmp
 
 make_dir $MODEL_DIR
 
-DATASET=python
-CODE_EXTENSION=original_subtoken
+DATASET=java-sbt
+CODE_EXTENSION=sbt
 JAVADOC_EXTENSION=original
 
 
@@ -39,15 +39,15 @@ PYTHONPATH=$SRC_DIR CUDA_VISIBLE_DEVICES=$RGPU python -W ignore ${SRC_DIR}/main/
 --use_src_char False \
 --use_tgt_word True \
 --use_tgt_char False \
---max_src_len 400 \
---max_tgt_len 30 \
+--max_src_len 150 \
+--max_tgt_len 50 \
 --emsize 512 \
 --fix_embeddings False \
 --src_vocab_size 50000 \
 --tgt_vocab_size 30000 \
 --share_decoder_embeddings True \
 --max_examples -1 \
---batch_size 64 \
+--batch_size 32 \
 --test_batch_size 64 \
 --num_epochs 200 \
 --model_type transformer \
@@ -65,7 +65,7 @@ PYTHONPATH=$SRC_DIR CUDA_VISIBLE_DEVICES=$RGPU python -W ignore ${SRC_DIR}/main/
 --dropout 0.2 \
 --copy_attn True \
 --early_stop 20 \
---warmup_steps 0 \
+--warmup_steps 2000 \
 --optimizer adam \
 --learning_rate 0.0001 \
 --lr_decay 0.99 \
@@ -73,7 +73,6 @@ PYTHONPATH=$SRC_DIR CUDA_VISIBLE_DEVICES=$RGPU python -W ignore ${SRC_DIR}/main/
 --checkpoint True
 
 }
-
 
 function test () {
 
@@ -92,8 +91,8 @@ PYTHONPATH=$SRC_DIR CUDA_VISIBLE_DEVICES=$RGPU python -W ignore ${SRC_DIR}/main/
 --dev_src test/code.${CODE_EXTENSION} \
 --dev_tgt test/javadoc.${JAVADOC_EXTENSION} \
 --uncase True \
---max_src_len 400 \
---max_tgt_len 30 \
+--max_src_len 150 \
+--max_tgt_len 50 \
 --max_examples -1 \
 --test_batch_size 64
 
@@ -116,8 +115,8 @@ PYTHONPATH=$SRC_DIR CUDA_VISIBLE_DEVICES=$RGPU python -W ignore ${SRC_DIR}/main/
 --dev_tgt test/javadoc.${JAVADOC_EXTENSION} \
 --uncase True \
 --max_examples -1 \
---max_src_len 400 \
---max_tgt_len 30 \
+--max_src_len 150 \
+--max_tgt_len 50 \
 --test_batch_size 64 \
 --beam_size 4 \
 --n_best 1 \
